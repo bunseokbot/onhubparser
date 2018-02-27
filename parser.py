@@ -9,6 +9,11 @@ def main(args, parser):
         parser.print_usage()
         return
 
+    dr = diagnostic.DiagnosticReport()
+    dr.ParseFromString(open(args.report_file, 'rb').read())
+
+    report = generate_report(dr)
+
 
 if __name__ == '__main__':
     parser = ArgumentParser()
